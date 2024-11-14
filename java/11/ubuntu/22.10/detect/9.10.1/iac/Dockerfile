@@ -21,7 +21,7 @@ ENV LC_ALL en_US.UTF-8
 
 ARG DETECT_SOURCE=https://repo.blackduck.com/bds-integrations-release/com/synopsys/integration/synopsys-detect/9.10.1/synopsys-detect-9.10.1.jar
 
-RUN wget -O /detect.jar --server-response ${DETECT_SOURCE}
+RUN wget -O /synopsys-detect.jar --server-response ${DETECT_SOURCE}
 
 # Define Docker Image entrypoint
 ENTRYPOINT ["java", "-jar", "/synopsys-detect.jar", "--detect.source.path=/source", "--detect.output.path=/output", "--detect.phone.home.passthrough.invoked.by.image=true"]

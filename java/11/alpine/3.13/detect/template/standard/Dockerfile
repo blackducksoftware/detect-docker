@@ -3,7 +3,10 @@ FROM alpine:3.23
 # Update, upgrade, and add required packages
 RUN apk --no-cache update && \
     apk --no-cache upgrade && \
-    apk --no-cache add bash curl libstdc++ gcompat icu
+    apk --no-cache add bash curl
+
+# Required for standalone nuget inspector
+RUN apk --no-cache add libstdc++ gcompat icu
 
 # Java, use headless as it brings in less dependencies
 RUN apk --no-cache add openjdk11-jre-headless

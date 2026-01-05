@@ -5,7 +5,7 @@ RUN apk --no-cache update && \
     apk --no-cache upgrade && \
     apk --no-cache add bash curl
 
-# Java
+# Java, use headless as it brings in less dependencies
 RUN apk --no-cache add openjdk11-jre-headless
 
 ENV BDS_JAVA_HOME=/usr/lib/jvm/java-11-openjdk

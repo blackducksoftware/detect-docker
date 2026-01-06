@@ -1,15 +1,13 @@
-FROM alpine:3.23
+FROM alpine:3.18
 
-# Update, upgrade, and add required packages
-RUN apk --no-cache update && \
-    apk --no-cache upgrade && \
-    apk --no-cache add bash curl
+# Update, get bash
+RUN apk update && apk add bash && apk add curl
 
 # Required for standalone nuget inspector
-RUN apk --no-cache add libstdc++ gcompat icu
+RUN apk add libstdc++ && apk add gcompat && apk add icu
 
-# Java, use headless as it brings in less dependencies
-RUN apk --no-cache add openjdk11-jre-headless
+# Java
+RUN apk --no-cache add openjdk11-jre
 
 ENV BDS_JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 

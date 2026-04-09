@@ -1,5 +1,5 @@
-#FROM ubuntu:24.04
-FROM debian:trixie-slim
+FROM ubuntu:24.04
+#FROM debian:trixie-slim
 
 # Update
 RUN apt-get update

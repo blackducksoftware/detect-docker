@@ -1,4 +1,5 @@
-FROM cgr.dev/blackduck.com/adoptium-jre:adoptium-openjdk-17-dev
+#FROM cgr.dev/blackduck.com/adoptium-jre:adoptium-openjdk-17-dev
+FROM artifactory.tools.duckutil.net:5010/blackduck.com/adoptium-jre:adoptium-openjdk-17-dev
 
 # Download Detect jar
 

@@ -15,7 +15,7 @@ RUN apk --no-cache add openjdk-11-jre
 ENV BDS_JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 ENV PATH="${BDS_JAVA_HOME}/bin:${PATH}"
 
-ARG DETECT_SOURCE=https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/detect/11.5.0/detect-11.5.0.jar
+ARG DETECT_SOURCE=https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/detect/11.4.0/detect-11.4.0.jar
 
 RUN if [ $(curl --silent -L -w '%{http_code}' -o /detect.jar --create-dirs ${DETECT_SOURCE}) != "200" ]; then echo "Unable to download Detect jar from ${DETECT_SOURCE}"; exit 1; fi
 

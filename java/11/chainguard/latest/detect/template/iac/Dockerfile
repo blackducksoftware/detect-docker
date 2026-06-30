@@ -7,7 +7,8 @@ RUN wget -O /tmp/detect.jar --server-response ${DETECT_SOURCE}
 
 # For the final built image use a non-dev release so we remove various tool vulnerabilities
 # from the final image.
-FROM artifactory.tools.duckutil.net:5002/blackducksoftware/blackduck-basejre-chainguard:3.0.1-RC
+#FROM artifactory.tools.duckutil.net:5002/blackducksoftware/blackduck-basejre-chainguard:3.0.1-RC
+FROM artifactory.tools.duckutil.net:5002/blackducksoftware/blackduck-basejre-chainguard-dev:3.0.1-RC
 COPY --from=downloader /tmp/detect.jar /tmp/detect.jar
 
 # Define Docker Image entrypoint

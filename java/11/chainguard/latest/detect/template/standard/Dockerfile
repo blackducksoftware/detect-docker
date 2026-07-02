@@ -3,7 +3,7 @@ FROM artifactory.tools.duckutil.net:5002/blackducksoftware/blackduck-basejre-cha
 # Update, upgrade, and add required packages
 RUN apk --no-cache update && \
     apk --no-cache upgrade && \
-    apk --no-cache add bash curl
+    apk --no-cache add bash
 
 # Required for standalone nuget inspector
 # Note: gcompat is not needed - Wolfi uses glibc natively (Alpine uses musl, which needed gcompat)
@@ -17,6 +17,6 @@ ENV PATH="${BDS_JAVA_HOME}/bin:${PATH}"
 
 ARG DETECT_SOURCE=<detectsource>
 
-RUN if [ $(curl --silent -L -w '%{http_code}' -o /detect.jar --create-dirs ${DETECT_SOURCE}) != "200" ]; then echo "Unable to download Detect jar from ${DETECT_SOURCE}"; exit 1; fi
+RUN wget -O /detect.jar --server-response ${DETECT_SOURCE}
 
 ENTRYPOINT ["java", "-jar", "/detect.jar", "--detect.source.path=/source", "--detect.output.path=/output", "--detect.phone.home.passthrough.invoked.by.image=true"]

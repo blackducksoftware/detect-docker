@@ -1,4 +1,4 @@
-FROM artifactory.tools.duckutil.net:5002/blackducksoftware/blackduck-basejre-chainguard-dev:3.0.1-RC
+FROM artifactory.tools.duckutil.net:5002/blackducksoftware/blackduck-basejre-chainguard-dev:3.0.1
 
 # Update, upgrade, and add required packages
 RUN apk --no-cache update && \

@@ -76,4 +76,4 @@ COPY --from=builder /runtime/detect.jar /detect.jar
 ENV BDS_JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 ENV PATH="${BDS_JAVA_HOME}/bin:${PATH}"
 
-ENTRYPOINT ["java", "-jar", "/detect.jar", "--detect.source.path=/source", "--detect.output.path=/output", "--detect.phone.home.passthrough.invoked.by.image=true", "--detect.accuracy.required=NONE"]
+ENTRYPOINT ["java", "-jar", "/detect.jar", "--detect.source.path=/source", "--detect.output.path=/output", "--detect.phone.home.passthrough.invoked.by.image=true"]

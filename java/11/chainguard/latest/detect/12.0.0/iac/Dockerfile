@@ -2,7 +2,7 @@
 FROM artifactory.tools.duckutil.net:5002/blackducksoftware/blackduck-basejre-chainguard-dev:3.0.1 AS downloader
 
 # Download Detect jar
-ARG DETECT_SOURCE=<detectsource>
+ARG DETECT_SOURCE=https://repo.blackduck.com/bds-integrations-release/com/blackduck/integration/detect/12.0.0/detect-12.0.0.jar
 RUN wget -O /tmp/detect.jar --server-response ${DETECT_SOURCE}
 
 # For the final built image use a non-dev release so we remove various tool vulnerabilities
